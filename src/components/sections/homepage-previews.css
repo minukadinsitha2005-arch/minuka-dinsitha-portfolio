@@ -1,0 +1,220 @@
+.homepage-preview {
+  padding-block: var(--spacing-section);
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink);
+  background: var(--color-background);
+  overflow-wrap: anywhere;
+}
+
+.homepage-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.homepage-supporting-copy {
+  margin-top: 1rem;
+  color: var(--color-muted-strong);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.homepage-about-copy {
+  max-width: 41rem;
+  min-width: 0;
+}
+
+.homepage-about-copy .homepage-button {
+  margin-top: 2rem;
+}
+
+.homepage-button svg,
+.homepage-text-link svg {
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.homepage-button:is(:hover, :focus-visible) svg,
+.homepage-text-link:is(:hover, :focus-visible) svg {
+  transform: translate(2px, -2px);
+}
+
+.homepage-section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+}
+
+.homepage-project-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-block: 1px solid var(--color-line);
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.homepage-project-empty > svg {
+  flex-shrink: 0;
+  color: var(--color-muted-strong);
+}
+
+.homepage-project-empty > div {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.homepage-project-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.homepage-project {
+  min-width: 0;
+}
+
+.homepage-project .homepage-project-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.homepage-project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.homepage-project-meta,
+.homepage-project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.homepage-project-meta {
+  justify-content: space-between;
+}
+
+.homepage-project-summary {
+  color: var(--color-muted-strong);
+  line-height: 1.8;
+}
+
+.homepage-text-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: auto;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.homepage-text-link:hover {
+  text-decoration-color: var(--color-orange);
+}
+
+.homepage-education-list {
+  min-width: 0;
+  border-block: 1px solid var(--color-line);
+}
+
+.homepage-education-entry {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+  padding-block: 2rem;
+}
+
+.homepage-education-entry + .homepage-education-entry {
+  border-top: 1px solid var(--color-line);
+}
+
+.homepage-education-entry > svg {
+  margin-top: 0.25rem;
+  color: var(--color-focus);
+}
+
+.homepage-education-entry h3 {
+  margin-top: 1rem;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.homepage-education-level {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.homepage-contact-section {
+  padding-bottom: var(--spacing-section);
+  background: var(--color-background);
+}
+
+.homepage-contact-panel {
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  color: var(--color-ink);
+  background: var(--color-secondary);
+  container-type: inline-size;
+  overflow-wrap: anywhere;
+}
+
+.homepage-contact-heading {
+  max-width: 18ch;
+  margin-top: 2rem;
+  font-size: clamp(1.125rem, 8cqw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.homepage-contact-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.homepage-contact-bottom > p {
+  max-width: 30rem;
+  color: var(--color-muted-strong);
+}
+
+@media (min-width: 40rem) {
+  .homepage-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .homepage-split {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(3rem, 7vw, 7rem);
+  }
+
+  .homepage-project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homepage-button svg,
+  .homepage-text-link svg {
+    transform: none !important;
+    transition: none !important;
+  }
+}
