@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 };
 
 const palette = [
-  { name: "Warm white", hex: "#FFFEF8", color: "bg-background" },
-  { name: "Soft yellow", hex: "#FFF4CC", color: "bg-secondary" },
-  { name: "Orange", hex: "#FF8A32", color: "bg-orange" },
-  { name: "Golden yellow", hex: "#FFC857", color: "bg-golden" },
-  { name: "Main text", hex: "#242424", color: "bg-ink" },
-  { name: "Muted text", hex: "#77736D", color: "bg-muted" },
+  { name: "Background", hex: "#FFFFFF", color: "bg-background" },
+  { name: "Secondary", hex: "#F7FBFF", color: "bg-secondary" },
+  { name: "Elevated", hex: "#EAF5FF", color: "bg-elevated" },
+  { name: "Accent blue", hex: "#A8D8FF", color: "bg-accent" },
+  { name: "Main text", hex: "#17263A", color: "bg-ink" },
+  { name: "Muted text", hex: "#64748B", color: "bg-muted" },
 ];
 
 /** An unlinked, noindex reference surface; not part of portfolio navigation. */
@@ -30,12 +30,12 @@ export default function DesignSystemPage() {
           as="h1"
           eyebrow="Design reference / 02"
           title="A considered foundation."
-          description="Warm surfaces. Confident typography. A little orange. The building blocks of a personal portfolio."
+          description="Quiet blue surfaces. Confident typography. A light editorial palette. The building blocks of a personal portfolio."
         />
       </AnimatedReveal>
 
       <section aria-labelledby="palette-title" className="mt-section border-t border-line pt-10">
-        <SectionHeading id="palette-title" size="medium" eyebrow="01 / Color" title="A warmer palette." />
+        <SectionHeading id="palette-title" size="medium" eyebrow="01 / Color" title="A cooler perspective." />
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {palette.map(({ name, hex, color }) => (
             <div key={hex}>
@@ -49,12 +49,12 @@ export default function DesignSystemPage() {
 
       <section aria-labelledby="type-title" className="mt-section border-t border-line pt-10">
         <SectionHeading id="type-title" size="medium" eyebrow="02 / Typography" title="Words with presence." />
-        <p className="mt-5 max-w-xl text-body text-muted-strong">Syne ExtraBold for display and headings. DM Sans for everything that needs a little more room to read.</p>
+        <p className="mt-5 max-w-xl text-body text-muted-strong">Anybody for headings and body text. Parisienne is reserved for the personal name in the homepage hero. All pages use the light editorial palette.</p>
         <div className="mt-10 space-y-10">
-          <div><p className="eyebrow mb-4 text-muted-strong">Display</p><p className="font-display text-display font-extrabold">Be curious.</p></div>
-          <div><p className="eyebrow mb-4 text-muted-strong">Heading XL</p><p className="font-display text-heading-xl font-extrabold">Think clearly.</p></div>
-          <div><p className="eyebrow mb-4 text-muted-strong">Heading LG</p><p className="font-display text-heading-lg font-extrabold">Make something meaningful.</p></div>
-          <div><p className="eyebrow mb-4 text-muted-strong">Heading MD</p><p className="font-display text-heading-md font-extrabold">The details make the difference.</p></div>
+          <div><p className="eyebrow mb-4 text-muted-strong">Display</p><p className="font-sans text-display font-bold">Be curious.</p></div>
+          <div><p className="eyebrow mb-4 text-muted-strong">Heading XL</p><p className="font-sans text-heading-xl font-bold">Think clearly.</p></div>
+          <div><p className="eyebrow mb-4 text-muted-strong">Heading LG</p><p className="font-sans text-heading-lg font-bold">Make something meaningful.</p></div>
+          <div><p className="eyebrow mb-4 text-muted-strong">Heading MD</p><p className="font-sans text-heading-md font-bold">The details make the difference.</p></div>
           <div className="grid gap-8 md:grid-cols-2">
             <div><p className="eyebrow mb-4 text-muted-strong">Body large</p><p className="text-body-lg">A generous rhythm makes space for ideas, and keeps the story easy to follow.</p></div>
             <div><p className="eyebrow mb-4 text-muted-strong">Body / Small</p><p className="text-body">A clear, comfortable reading size for everyday content.</p><p className="mt-3 text-small text-muted-strong">Supporting details stay quiet, but always readable.</p></div>
@@ -87,7 +87,7 @@ export default function DesignSystemPage() {
             <Card tone="soft" className="h-full">
               <p className="eyebrow mb-6 text-muted-strong">Soft card</p>
               <h3 className="text-heading-md">A quieter emphasis.</h3>
-              <p className="mt-4 text-body text-muted-strong">A warm yellow surface offers contrast without adding a heavy shadow or visual noise.</p>
+              <p className="mt-4 text-body text-muted-strong">A soft blue surface offers contrast without adding a heavy shadow or visual noise.</p>
             </Card>
           </AnimatedReveal>
         </div>

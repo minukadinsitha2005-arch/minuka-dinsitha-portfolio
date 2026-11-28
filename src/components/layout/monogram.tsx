@@ -6,9 +6,9 @@ export function Monogram({ className }: { className?: string }) {
     <Link
       href="/"
       aria-label="Minuka Dinsitha — home"
-      className={classes("inline-flex min-h-12 items-center font-display text-3xl font-extrabold leading-none tracking-[-0.08em]", className)}
+      className={classes("inline-flex min-h-12 items-center font-sans text-3xl font-bold leading-none tracking-[-0.08em]", className)}
     >
-      MD<span className="text-orange" aria-hidden="true">.</span>
+      MD<span className="text-accent-strong" aria-hidden="true">.</span>
     </Link>
   );
 }

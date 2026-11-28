@@ -5,7 +5,7 @@ import { profile } from "@/content/profile";
 
 export function Footer() {
   return (
-    <footer id="site-footer" tabIndex={-1} className="border-t border-line bg-secondary/40">
+    <footer id="site-footer" tabIndex={-1} className="border-t border-line bg-secondary">
       <ContentContainer>
         <div className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-16">
           <div>

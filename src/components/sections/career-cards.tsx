@@ -33,8 +33,8 @@ export function CareerCards() {
                       <Icon aria-hidden="true" className="career-icon" strokeWidth={1.5} />
                     </div>
                     <h3 id={`${path.id}-career-title`} className="career-title">{path.title}</h3>
-                    <p id={`${path.id}-career-subtitle`} className="career-subtitle">{path.subtitle}</p>
-                    <p id={`${path.id}-career-summary`} className="career-description">{path.description}</p>
+                    <p id={`${path.id}-career-subtitle`} className="career-subtitle">{path.description}</p>
+                    <p id={`${path.id}-career-summary`} className="career-description">{path.detail}</p>
                     <div className="career-card-bottom">
                       <span id={`${path.id}-career-action`}>{path.action}</span>
                       <span className="career-arrow" aria-hidden="true"><ArrowUpRight size={22} strokeWidth={1.5} /></span>

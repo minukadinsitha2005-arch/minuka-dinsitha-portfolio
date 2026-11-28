@@ -1,34 +1,46 @@
 import Link from "next/link";
+import { Allura } from "next/font/google";
 import { Suspense } from "react";
 import { ContentContainer } from "@/components/ui/content-container";
-import { Monogram } from "@/components/layout/monogram";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { NavigationLinks } from "@/components/layout/navigation-links";
 import { navigation } from "@/content/navigation";
+import { profile } from "@/content/profile";
+
+const logoFont = Allura({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 /** Preserve links in the static shell while future dynamic params resolve. */
 function NavigationFallback() {
   return (
-    <nav aria-label="Main navigation" className="col-span-2 flex flex-wrap gap-x-6">
-      {navigation.map(({ href, label }) => (
-        <Link key={href} href={href} className="nav-link">{label}</Link>
-      ))}
+    <nav aria-label="Main navigation" className="desktop-navigation">
+      <ul className="flex items-center gap-7 xl:gap-9">
+        {navigation.map(({ href, label }) => (
+          <li key={href}><Link href={href} className="nav-link">{label}</Link></li>
+        ))}
+      </ul>
     </nav>
   );
 }
 
 export function Navbar() {
   return (
-    <header data-hero-navigation="" className="site-navbar relative z-20 border-b border-line bg-background">
-      <ContentContainer className="grid grid-cols-[1fr_auto] items-center gap-x-8 py-5 sm:py-6">
-        <Monogram className="site-monogram col-start-1 row-start-1 justify-self-start" />
-        <Link href="/contact" className="homepage-contact hidden">Contact</Link>
+    <header data-hero-navigation="" className="site-navbar">
+      <ContentContainer className="navbar-inner">
+        <Link href="/" aria-label={`${profile.name} — home`} className={`${logoFont.className} navbar-signature`}>
+          {profile.name}
+        </Link>
         <Suspense fallback={<NavigationFallback />}>
-          <nav aria-label="Main navigation" className="hidden lg:block">
+          <nav aria-label="Main navigation" className="desktop-navigation">
             <NavigationLinks />
           </nav>
-          <MobileNavigation />
         </Suspense>
+        <div className="navbar-actions">
+          <MobileNavigation />
+        </div>
       </ContentContainer>
     </header>
   );

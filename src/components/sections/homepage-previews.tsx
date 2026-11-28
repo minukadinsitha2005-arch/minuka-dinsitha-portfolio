@@ -18,6 +18,7 @@ export function AboutPreview() {
           <AnimatedReveal distance={12} className="homepage-about-copy">
             <p className="text-body-lg">{homepage.about.introduction}</p>
             <p className="homepage-supporting-copy">{homepage.about.description}</p>
+            <p className="homepage-supporting-copy">{homepage.about.interests}</p>
             <SecondaryButton href="/about" className="homepage-button">
               {homepage.about.action}<ArrowUpRight aria-hidden="true" size={18} />
             </SecondaryButton>

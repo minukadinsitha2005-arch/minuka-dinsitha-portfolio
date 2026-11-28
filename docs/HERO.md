@@ -1,32 +1,34 @@
-# Phase 03 — Premium Editorial hero
+# Portrait-depth homepage refinement
 
-## Current scope
+## Scope
 
-The latest request replaces the minimalist hero with a layered Syne ExtraBold composition and restores the full supplied introduction, professional identity, tagline, description, and CTA buttons. Only the hero, its animation, its content fields, and this note change. Existing career cards, navigation destinations, other pages, CMS, and hosting remain unchanged.
+Refine the existing homepage and shared theme/navigation components within the App Router architecture. Preserve all five completed lower homepage sections, existing routes, approved facts, local content contracts, and the original portrait. Detailed pages, CMS, external services, and deployment remain deferred.
 
-## Composition
+## Composition and portrait
 
-- `src/components/sections/home-hero.tsx` remains a Server Component and reuses the existing content container, buttons, portrait, and client animation wrapper.
-- Oversized MINUKA and DINSITHA lines span almost the entire content width. The name remains one semantic H1.
-- A twelve-column grid integrates the portrait on the right. Shared grid rows place professional identity between the name lines and the description/CTAs beneath the surname, all in normal flow. The H1 remains semantic. A conventional grid fallback is provided for browsers without CSS subgrid. Mobile uses a normal-flow stack: heading, portrait, identity, description, actions.
-- The latest refinement increases desktop type by approximately 7–8%, extends the name 2cqw into each container gutter, right-aligns the surname, and slightly enlarges the portrait. Measured text still fits within the viewport.
-- Explicit warm-white surfaces, one plain soft-yellow portrait field, a small orange introductory rule, and thin dividers supply the editorial details. The arch border, extra orange flourish, edition label, and circular scroll enclosure are removed.
-- The prior homepage MD / Contact navbar presentation is preserved through homepage-scoped CSS; other pages retain their existing navigation.
+- The hero remains a Server Component. A large centered transparent portrait is followed directly by one MINUKA DINSITHA H1, four professional categories, and one minimal scroll cue. Prior long copy stays in About; prior hero content/action fields remain in local data.
+- The original 3024 x 4032 RGBA PNG is unchanged. Transparent headroom is removed through uniform CSS sizing and margins. All nontransparent bounds fit the portrait window, including the face, hairstyle, arms, and torso. A gentle fade blends only the lowest part of the portrait into the page.
+- The depth hierarchy uses the page background, a very subtle bounded blue radial illumination, a portrait with a 1000px perspective parent and an 18px foreground translateZ, then the name/categories. No frame, rectangle, mouse tracking, rotation, floating loop, or text across the person is used.
+- Parisienne at weight 400 provides only the hero name; Anybody provides all other text. Both load once through next/font/google in the root layout and are self-hosted after build. The name uses natural spacing, no synthetic weight, clamp(2rem, 5.9vw, 5.5rem) on desktop/tablet, and clamp(1.875rem, 10vw, 2.5rem) on phones. It stays on one line from tablet upward and wraps at the word space on phones. The padded clipping wrapper accommodates the script strokes during the existing reveal animation. Portrait sizing, image fade, depth, and motion remain unchanged.
+- The categories are explicitly user-supplied and ordered CYBERSECURITY, AI DEVELOPER, TUTOR, ENTREPRENEUR. They use small uppercase text and blue separators, with a balanced two-column arrangement on phones. Cybersecurity remains the confirmed academic specialization.
+- Portrait sizing considers viewport height and width. The hero has a minimum viewport height with normal document flow, allowing expansion instead of clipping on short screens.
 
-## Layering and portrait
+## Navigation and themes
 
-The composition establishes its own stacking context. The yellow field is layer 0, the first name is layer 1, the transparent portrait window is layer 2, and the surname is layer 3. Copy and controls are layer 4. The figure wrapper intentionally has no stacking context, so the field cannot cover the name. The surname is placed lower to cross the torso rather than the face.
+The header is transparent and sits in normal flow over the page background, with a one-pixel #DCEEFF divider. MD. sits at left and all six existing routes sit to the right. The theme control is removed; mobile retains the native disclosure menu.
 
-The supplied `public/images/minuka-portrait.png` is retained at 3024 × 4032. Static Next Image dimensions, responsive sizes, eager loading, and high fetch priority support a stable initial layout. Uniform image width and automatic height preserve natural proportions. Margins remove excess transparent framing; the reserved viewport retains clearance above the head. No replacement person, image generation, retouching, or nonuniform scaling is used.
+The native mobile shell remains outside any suspending pathname read; its nested navigation has real-link fallbacks. It therefore remains usable without JavaScript. With JavaScript, Escape restores focus, outside interactions close the menu, route changes close it, and desktop resizing closes it.
+
+All pages are permanently light. The unused provider, Sun/Moon toggle, theme switching styles, dark variables, and next-themes dependency are removed. CSS fixes color-scheme to light; saved preferences and operating-system changes cannot alter the palette. Anybody supplies all text except the unchanged Parisienne name. The light tokens, portrait/depth styles, and name animation remain unchanged.
 
 ## Motion and accessibility
 
-`HeroEntrance` staggers the two name lines, introduces the portrait smoothly, and fades in the supporting copy and buttons. Reveal translations are smaller in this refinement. The field makes one four-pixel, 2.5-second entrance; the scroll arrow makes one 1.4-second movement. Neither repeats. The cue links to the existing `#career-paths` section.
+Motion for React progressively enhances visible server HTML. The portrait rises 45px and scales from 0.96 to 1 over 0.85 seconds, the name rises through a clipping mask, categories stagger gently, and navigation/cue settle into place. The complete sequence takes about 1.05 seconds. Shared lower-section reveals and restrained hover interactions remain.
 
-Reduced-motion preferences skip Motion animations and receive immediate CSS overrides. Server HTML starts visible, and keyboard focus completes an in-progress animation. Decorative accents have no pointer events. CTA destinations remain `/projects` and `/contact`.
+Reduced motion skips the sequence and removes transforms immediately, including live preference changes. Keyboard focus completes in-progress reveals. Semantics, visible focus, native links, and readable static content are preserved.
 
 ## Verification
 
-Passed ESLint, route type generation, standalone TypeScript checking, production build, HTTP checks for supplied content/CTAs/navigation, and optimized transparent image delivery. Actual Syne font measurements confirm heading fit at 1440, 1024, 768, 390, and 320px, with positive portrait head clearance at each calculated size.
+Before the permanent-light cleanup, ESLint, Next route type generation, standalone TypeScript, and the production build passed. Earlier Chrome production-browser checks passed in both themes at 1920x1080, 1440x900, 1024x900, 768x1024, 390x844, and 320x740. At all twelve combinations, the name is fully visible on the initial screen and below the portrait, category order is correct, the header is transparent, all six homepage sections remain, and there is no horizontal overflow. Full-page screenshots and JSON reports are in the ignored node_modules/.cache/portfolio-qa directory.
 
-The native portfolio preview window was minimized and could not be captured. Rendered overlap/alignment, mobile viewport geometry, and live reduced-motion switching have not been visually verified. The font/framing calculations and source review must not be represented as browser tests. The existing local dev server remains running; no service or deployment configuration is added.
+Earlier browser interaction checks covered theme switching before its removal, navigation and career links, mobile-menu keyboard behavior, reduced motion, and no-JavaScript fallbacks. Current permanent-light validation checks Anybody on all other text, Parisienne only on the hero heading with unclipped strokes and unchanged Anybody text, absent theme controls, and light rendering despite a dark operating system or saved dark preference. Browser coverage is Chrome; other engines have not been tested.

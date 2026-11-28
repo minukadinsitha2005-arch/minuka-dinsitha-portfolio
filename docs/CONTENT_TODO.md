@@ -9,7 +9,7 @@ Confirmed facts are in `PROJECT_BRIEF.md` and `src/content/profile.ts`. Unchecke
 - [x] Add a structured local project collection and an explicit empty state; show at most three entries marked `featured: true` when real content is provided.
 - [ ] Supply real featured project records for `src/content/projects.ts`: title, summary, category, status, technologies, and approved repository/demo links or images where available. No project records are currently published.
 - [ ] Supply institution, exact programme, study dates, and any earlier educational milestones for the Education preview. No institution, dates, or completed qualifications are inferred.
-- [ ] Visually verify the completed homepage at desktop, tablet, and mobile widths; browser/native preview tooling was unavailable during this phase.
+- [x] Verify the refined homepage in Chrome at 1920, 1440, 1024, 768, 390, and 320px in both themes, including screenshots, overflow, portrait/name geometry, navigation, theme persistence/system preference, keyboard interactions, reduced motion, and no-JavaScript fallbacks. See HERO.md for scope and browser-coverage limits.
 
 ## Before visual implementation
 

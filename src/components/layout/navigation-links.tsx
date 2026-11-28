@@ -1,12 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/navigation";
 import { classes } from "@/lib/classes";
 
 export function NavigationLinks({ mobile = false, onNavigate }: { mobile?: boolean; onNavigate?: () => void }) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    onNavigate?.();
+  }, [pathname, onNavigate]);
 
   return (
     <ul className={mobile ? "grid gap-1" : "flex items-center gap-7 xl:gap-9"}>

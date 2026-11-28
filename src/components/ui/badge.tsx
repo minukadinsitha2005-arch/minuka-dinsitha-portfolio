@@ -5,7 +5,7 @@ type BadgeProps = ComponentPropsWithoutRef<"span"> & { tone?: "neutral" | "soft"
 const tones = {
   neutral: "border-line bg-transparent",
   soft: "border-transparent bg-secondary",
-  accent: "border-transparent bg-golden",
+  accent: "border-transparent bg-elevated",
 };
 
 export function Badge({ tone = "neutral", className, ...props }: BadgeProps) {

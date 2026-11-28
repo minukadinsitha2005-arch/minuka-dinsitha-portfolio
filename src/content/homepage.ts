@@ -1,5 +1,6 @@
 import { profile } from "@/content/profile";
 import type { EducationEntry } from "@/types/content";
+import { homeHero } from "@/content/home-hero";
 
 /** Homepage copy grounded in the supplied identity and teaching information. */
 export const homepage = {
@@ -7,7 +8,8 @@ export const homepage = {
     eyebrow: "A little context",
     heading: "About me.",
     introduction: `I'm ${profile.name}, a Cybersecurity undergraduate based in ${profile.location.locality}, ${profile.location.country}. My interests connect technology, education, and entrepreneurship.`,
-    description: "Alongside development, I teach English Medium Mathematics to students in Grades 6–11. I enjoy creating meaningful digital solutions and empowering students through learning.",
+    description: "Alongside development, I teach English Medium Mathematics to students in Grades 6–11.",
+    interests: homeHero.description,
     action: "More about me",
   },
   projects: {

@@ -4,7 +4,7 @@
 
 Create a production-quality personal portfolio for IT industry opportunities, with a distinct, professional Mathematics Tutor section. Present Minuka as a Cybersecurity undergraduate, developer, mathematics tutor, and aspiring entrepreneur.
 
-Phase 01 delivered inspection, architecture, project instructions, a development plan, a missing-content checklist, and reusable TypeScript contracts. Phase 02 implemented the design system and global layout. Phase 03 delivered the editorial hero and two career cards, followed by focused typography, text-flow, and portrait-panel refinements. Phase 04 preserves that hero and completes the homepage below it with career cards, About, Featured Projects, Education, and Contact previews. Detailed content pages remain deferred. Do not configure Sanity, deployment, or external services. Vercel is the intended deployment platform for a later phase.
+Phase 01 delivered inspection, architecture, project instructions, a development plan, a missing-content checklist, and reusable TypeScript contracts. Phase 02 implemented the design system and global layout. Phase 03 delivered the editorial hero and two career cards, followed by focused typography, text-flow, and portrait-panel refinements. Phase 04 completed the homepage below the hero with career cards, About, Featured Projects, Education, and Contact previews. The subsequent approved cinematic redesign replaces the hero and warm palette, originally added global light/dark themes and preserved every completed section and route. The latest focused cleanup uses Anybody globally and permanent light mode while keeping the Parisienne hero name unchanged. Detailed content pages remain deferred. Do not configure Sanity, deployment, or external services. Vercel is the intended deployment platform for a later phase.
 
 ## Confirmed public information
 
@@ -25,26 +25,28 @@ The supplied identifiers are recorded in `src/content/profile.ts`. Their convent
 
 Premium Editorial: minimal, sophisticated, creative, modern, and professional. Use generous whitespace, confident typography, clear hierarchy, and restrained accents.
 
-| Token (planned) | Color | Purpose |
-| --- | --- | --- |
-| Background | `#FFFEF8` | Main warm-white background |
-| Soft yellow | `#FFF4CC` | Soft surfaces |
-| Orange | `#FF8A32` | Accent |
-| Golden yellow | `#FFC857` | Secondary accent |
-| Main text | `#242424` | Primary text |
-| Secondary text | `#77736D` | Supporting text |
+| Semantic token | Permanent light palette |
+| --- | --- |
+| Background | `#FFFFFF` |
+| Secondary | `#F7FBFF` |
+| Elevated | `#EAF5FF` |
+| Accent | `#A8D8FF` |
+| Strong accent | `#75BFFF` |
+| Main text | `#17263A` |
+| Muted | `#64748B` |
+| Borders | `#DCEEFF` |
 
-Use Syne ExtraBold for major headings and DM Sans for body content. Verify actual foreground/background contrast; palette membership alone does not guarantee accessibility, particularly for orange or secondary text on yellow. Theme tokens and fonts will be implemented during the design-system milestone.
+Use Parisienne at its supported 400 weight only for the main MINUKA DINSITHA hero heading. Use Anybody globally for every other heading, navigation item, control, and body text, with 400–700 weights. Load both once with next/font/google in the root layout using --font-signature and --font-body. Preserve natural script spacing and allow a balanced two-line name on phones. A darker companion blue (`#55677E`) keeps small light-mode text readable on every supplied surface. All pages use permanent light mode. Stored theme choices and operating-system preference have no effect; the unused provider, toggle, dark configuration, and next-themes dependency are removed. No yellow or orange remains in the design.
 
 ## Homepage requirements
 
-- Preserve the current Phase 03 hero: aligned oversized **MINUKA / DINSITHA** lines, supporting copy below the full name, and the supplied portrait on the right with a subtle rounded soft-yellow panel. Phase 04 does not modify the hero.
+- Use a large centered original portrait above one connected **MINUKA DINSITHA** H1. Keep all typography below the photograph. Use a subtle blue radial glow, with no frame or portrait floating. Keep the exact ordered categories CYBERSECURITY / AI DEVELOPER / TUTOR / ENTREPRENEUR beneath the name, followed by one scroll cue. The longer introduction belongs in About. Retain prior copy/action fields in local data. Use shallow perspective and a rising portrait entrance, with no face/text overlap.
 - Smooth cinematic entrance animations with an immediate, readable reduced-motion alternative. Content must remain usable without animation or JavaScript.
-- Clean premium navigation and clear keyboard focus.
+- Transparent shared navigation with Home, About, IT Industry, Tutor, Projects, and Contact; a one-pixel blue divider, and clear keyboard focus. Preserve the mobile menu; no theme control is shown.
 - Two prominent career cards labeled **IT INDUSTRY** and **MATHEMATICS TUTOR**, linking to `/it` and `/tutor`.
 - Give IT the leading position and strongest professional emphasis; keep tutoring easy to discover.
 - Responsive desktop and mobile compositions with normal-flow text and image, no horizontal overflow, a fully visible head, and no overlapping important content. Add the two requested career cards directly below the hero as a responsive bento grid.
-- Phase 04 career actions: **Explore IT Journey** to `/it` and **Explore Tutoring** to `/tutor`; use the latest supplied descriptions and numbers 01/02. Reuse the existing cards rather than adding another career section.
+- Career actions: **Explore IT Journey** to `/it` and **Explore Tutoring** to `/tutor`; use the latest supplied descriptions and numbers 01/02. Reuse the existing cards rather than adding another career section.
 - Follow with a brief About preview linking to `/about`, up to three explicitly featured projects from structured local data, a concise Education preview, and **LET'S BUILD SOMETHING MEANINGFUL.** linking to `/contact`.
 - No project records have been supplied: render an honest empty state until real approved entries exist. Education currently includes only the confirmed Cybersecurity undergraduate specialization; omit unprovided institutions, dates, and qualifications.
 
@@ -62,7 +64,7 @@ Use Syne ExtraBold for major headings and DM Sans for body content. Verify actua
 | `/entrepreneurship` | Approved initiatives and aspirations, clearly distinguishing ideas from launched work |
 | `/contact` | General professional email and supplied social profiles; no WhatsApp number |
 
-Phase 02 supplied minimal navigation destination shells for `/about`, `/it`, `/tutor`, `/projects`, and `/contact`. The homepage now includes the Phase 03 hero and the five Phase 04 sections. Detailed route content, `/projects/[slug]`, `/achievements`, and `/entrepreneurship` remain planned. Project preview cards use supplied repository/demo links when available; they do not link to deferred detail routes. `/design-system` is an unlinked, noindex component reference. Empty collections must not be populated with fictional examples. See `DESIGN_SYSTEM.md` for shared implementation conventions.
+Phase 02 supplied minimal navigation destination shells for `/about`, `/it`, `/tutor`, `/projects`, and `/contact`. The homepage includes the redesigned cinematic hero and all five completed Phase 04 sections. Detailed route content, `/projects/[slug]`, `/achievements`, and `/entrepreneurship` remain planned. Project preview cards use supplied repository/demo links when available; they do not link to deferred detail routes. `/design-system` is an unlinked, noindex component reference. Empty collections must not be populated with fictional examples. See `DESIGN_SYSTEM.md` for shared implementation conventions.
 
 ## Content integrity and privacy
 

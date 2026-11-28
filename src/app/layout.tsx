@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Anybody } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const anybody = Anybody({
+  variable: "--font-body",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: "800",
   display: "swap",
 });
 
@@ -29,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${syne.variable} h-full antialiased`}
+      className={`${anybody.variable} h-full antialiased`}
     >
       <body className="flex min-h-dvh flex-col bg-background">
         <a

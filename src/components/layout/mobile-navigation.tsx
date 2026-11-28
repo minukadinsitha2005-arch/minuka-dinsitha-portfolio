@@ -1,22 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Suspense, useEffect, useRef } from "react";
 import { NavigationLinks } from "@/components/layout/navigation-links";
+import { navigation } from "@/content/navigation";
 
 /** Native disclosure semantics, with no modal focus trap or JavaScript dependency. */
 export function MobileNavigation() {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const summaryRef = useRef<HTMLElement>(null);
-  const pathname = usePathname();
 
   function close() {
     if (detailsRef.current) detailsRef.current.open = false;
   }
-
-  useEffect(() => {
-    if (detailsRef.current) detailsRef.current.open = false;
-  }, [pathname]);
 
   useEffect(() => {
     function onPointerDown(event: PointerEvent) {
@@ -45,7 +41,7 @@ export function MobileNavigation() {
   return (
     <details
       ref={detailsRef}
-      className="mobile-menu col-start-2 row-start-1 justify-self-end lg:hidden"
+      className="mobile-menu lg:hidden"
       onKeyDown={(event) => {
         if (event.key === "Escape" && detailsRef.current?.open) {
           event.preventDefault();
@@ -57,16 +53,24 @@ export function MobileNavigation() {
       <summary
         ref={summaryRef}
         aria-controls="mobile-navigation"
-        className="flex min-h-12 items-center gap-3 rounded-full border border-line px-5 text-small font-medium"
+        className="flex min-h-12 items-center gap-2 rounded-full px-2 text-small font-medium"
       >
         Menu <span className="menu-icon" aria-hidden="true" />
       </summary>
       <nav
         id="mobile-navigation"
         aria-label="Mobile navigation"
-        className="absolute inset-x-0 top-full border-b border-line bg-background px-6 py-5 sm:px-10"
+        className="mobile-navigation-panel absolute inset-x-0 top-full border-b border-line bg-background px-6 py-5 sm:px-10"
       >
-        <NavigationLinks mobile onNavigate={close} />
+        <Suspense fallback={
+          <ul className="grid gap-1">
+            {navigation.map(({ href, label }) => (
+              <li key={href}><Link href={href} className="nav-link w-full py-2" onClick={close}>{label}</Link></li>
+            ))}
+          </ul>
+        }>
+          <NavigationLinks mobile onNavigate={close} />
+        </Suspense>
       </nav>
     </details>
   );
